@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.0.2/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.0.2/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="/webjars/bootstrap-icons/1.11.2/font/bootstrap-icons.css">
+</head>
+<body>
+ <div class="row mt-3">
+     <div class="col-md-6 offset-3">
+         <div class="card">
+             <div class="card-header">Login</div>
+             <div class="card-body">
+                 <form th:action="@{/login}" method="post">
+                     <div class="mb-3">
+                         <label for="username" class="form-label">Username</label>
+                         <input type="text" class="form-control" id="username" name="username">
+                     </div>
+                     <div class="mb-3">
+                         <label for="password" class="form-label">Password</label>
+                         <input type="password" class="form-control" id="password" name="password">
+                         <div th:if="${param.error}" class="text-danger">
+                             Invalid username and password.</div>
+                     </div>
+                     <div class="mb-3">
+                         <label class="form-check-label">
+                             <input type="checkbox" class="form-check-input" name="remember-me">
+                            &nbsp;Remember me
+                         </label>
+                     </div>
+                     <button type="submit" class="btn btn-success">Login</button>
+                 </form>
+
+             </div>
+         </div>
+     </div>
+ </div>
+
+</body>
+</html>
